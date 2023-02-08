@@ -3,7 +3,7 @@ import morgan from "morgan";
 import { Server as SocketServer } from "socket.io";
 import http from "http";
 import cors from "cors";
-import { PORT } from "./config.js";
+import { PORT, ORIGIN } from "./config.js";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const server = http.createServer(app);
 const io = new SocketServer(server, {
   cors: {
-    origin: "http://localhost:3000"
+    origin: ORIGIN
   },
 });
 
